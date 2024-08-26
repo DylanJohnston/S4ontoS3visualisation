@@ -1,6 +1,6 @@
-# S4 onto S3 Visualization
+# S4 onto S3 Visualisation
 
-A web app I created to aid in visualizing the surjective map from $S_4$ onto $S_3$. It can be found here:
+A web app I created to aid in visualising the surjective map from $S_4$ onto $S_3$. It can be found here:
 
 <a href="https://dylanjohnston.github.io/S4ontoS3visualisation/" target="_blank">https://dylanjohnston.github.io/S4ontoS3visualisation</a>
 
