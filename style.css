@@ -38,6 +38,7 @@ html, p{
     border: 5px solid #697a7d;
     margin-top: 30px;
     margin-bottom: 50px;
+    position: relative;
 }
 
 #main_container > * {
@@ -122,4 +123,13 @@ html, p{
 label, select{
     font-size: 20px;
     margin-right: 5px;
+}
+
+#main_container .bottom-right {
+    width: auto;
+    font-size: 0.8rem;
+    position: absolute; 
+    bottom: 0px; 
+    right: 0px;
+    margin: 5px;
 }
