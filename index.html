@@ -5,112 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The surjective map from S4 onto S3 visualised</title>
     <meta name="description" content="A visualisation of the surjective map between S4, the symmetric group on 4 letters, and S3, the symmetric group on 3 letters.">
-    <meta name="keywords" content="symmetric group, S4, S3, surjective, surjection, tetrahedron, klein 4, group action, group theory,">
+    <meta name="keywords" content="symmetric group, S4, S3, surjective, surjection, tetrahedron, klein 4, group action, group theory">
     <link rel="canonical" href="https://dylanjohnston.github.io/S4ontoS3visualisation/">
     <meta name="google-site-verification" content="0fVpHfKYWUpxJ2N0Z_dj7SVP5vlTCYyb9WlcYgI0xLw" />
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
     <link rel="icon" href="./surj_favi.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
     <style>
-    	.mathjax {
-            margin: 0 5px; /* Adjust this value to add horizontal space */
+        body{
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            font-size: 0.9rem;
         }
+        .container{
+            max-width: 1250px;
+            margin: auto;
+        }
+        .heading{
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        .desc-map-column{
+	    border: 2px solid #ccc; /* Light grey border */
+	    border-radius: 5px; /* Optional rounded corners */
+		}
+        .top-right{
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background-color: #777bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .top-right:hover{
+            background-color: #FFFF00;
+            color: #000080;
+        }
+        /*custom breakpoint at 350px where each cell takes max width. Effectively, cells in table become vertically stacked*/
+        @media (max-width: 349px) {
+			 #desc-column-1,
+			 #desc-column-2,
+			 #desc-column-3,
+			 #desc-column-4,
+			 #desc-column-5,
+			 #desc-column-6 {
+				 flex: 0 0 100%;
+				 max-width: 100%;
+		 	 }
+		}
     </style>
-
 </head>
 
 <body>
-    <div id='main_container'> 
+    <div class="container"> 
+        <div class="heading">
+            <h1 class="text-center">The* surjective map from \(S_4\) onto \(S_3\)</h1>
+            <p class="text-center"><small> * Unique up to the action of \(\text{Aut}(S_3)\). </small></p>
+        </div>
 
-    	<div  class='heading' style= 'margin-top: 40px;'>
-    		<h1 style='word-spacing: 8px; text-align: center;'> THE*  SURJECTIVE  MAP  FROM  S4  ONTO  S3  </h1> 
-    	</div>
+        <div class="heading">
+            <h2>Explanation of the surjective map</h2>  
+        </div>
 
-    	<div style="font-size: 20px;">
-    		<p style= 'font-size: 14px'> * Unique up to the action of \(\text{Aut}(S_3)\). </p>
-    		<p> The group \(S_4\) is the group of permutations on a \(4\)-element set. A particularly nice case is to take the \(4\)-element set to be the vertices of a regular tetrahedron. Then \(S_4\) acts on the regular tetrahedon by permuting the vertices. A visualisation of each of these permutations can be seen below.</p>
-    		<p> The group \(S_3\) is the group of permutations on a \(3\)-element set. One may also see this as symmetries of a regular tetrahedon, but is it not immediately obvious how. It turns out that \(S_3\) acts on a regular tetrahedron by permuting pairs of opposite edges of the tetrehedron. Once again, these permutations can be visualised below, with each pair of opposite edges being assigned a different colour.</p>
-    		<p> In short, this is the surjective map! The group \(S_4\) permutes the vertices of the tetrahedron. This induces a permutation on the pairs of opposite edges (of which there are three), and this induced permutation is (by definition) an element of \(S_3\).</p>
-    	</div>
+        <div class="content">            
+            <p>The symmetric group \(S_4\) is the group of permutations on a 4-element set. A nice geometric realisation is to take the 4-element set to be the vertices of a regular tetrahedron. Then \(S_4\) acts on the regular tetrahedron by permuting the vertices.</p>
+            <p>The symmetric group \(S_3\) is the group of permutations on a 3-element set. This can also be realised via symmetries of a regular tetrahedron, but not in an immediately obvious way. It turns out that \(S_3\) acts on a regular tetrahedron by permuting pairs of opposite edges of the tetrahedron.</p>
+            <p>In short, these realisations describe the surjective map! The group \(S_4\) permutes the vertices of the tetrahedron. This induces a permutation on the pairs of opposite edges (of which there are three), and this induced permutation is (by definition) an element of \(S_3\).</p>
+        </div>
 
-    	<div style = 'display: flex; flex-direction: column; align-items: center;'>    		
-	    	<div id='notation-selector-container'>
-	    		<label for="notation_select">Select element notation type:</label>        
-		        <select id="notation_select" name="notation" style="text-align: center;">
-		            <option value="cycle">Cycle notation</option>
-		            <option value="one-line">One-line notation</option>
-		        </select>
-	    	</div>	
-	    	<p> <a href="https://en.wikipedia.org/wiki/Permutation#Cycle_notation" target="_blank">cycle notation</a> v.s. <a href="https://en.wikipedia.org/wiki/Permutation#One-line_notation" target="_blank">one-line notation</a></p>
-    	</div>
+        <div class="heading">
+            <h2>Visualisation of the surjective map</h2>  
+        </div>
 
-    	<div class='heading'>    		
-    		<h2 > Visualisation of the surjective map</h2>	
-    	</div>
-    	<div>
-    		<p> \(S_4\) acts on the vertices of the regular tetrahedron. These vertices are labelled \(1,2,3,4\), so \(S_4\) acts on the set \(\{1,2,3,4\}\).</p>
-    		<p> \(S_3\) acts on pairs of opposite edges. The pairs of edges are coloured <span style="color:red;">red</span>, <span style="color:blue;">blue</span> and <span style="color: green">green</span>. They will be referred to as <span style="color:red;">a</span>, <span style="color:blue;">b</span>, and <span style="color: green">c</span> respectively, so \(S_3\) acts on the set {<span style="color:red;">a</span>, <span style="color:blue;">b</span>, <span style="color: green">c</span>}.</p>
-    	</div>
-    	<div id='visualisation-interface'>
-    		<div class='visualisation-column' style='flex: 1;'>
-    			<p> Choose an element of \(S_4\)</p>
-    			<select id="S4-element-select" style="text-align: center; padding: 6px;">
-    				<!-- The options will be populated based on notation type selected. This will be done in JS -->
-				</select>
-				<p class='explicit' id='S4image1' style='margin: 30px;'>1</p>
-				<p class='explicit' id='S4image2' style='margin: 30px;'>2</p>
-				<p class='explicit' id='S4image3' style='margin: 30px;'>3</p>
-				<p class='explicit' id='S4image4' style='margin: 30px;'>4</p>
-			</div>
-    		<div class='visualisation-column' style='flex: 1.75; border: 6px solid lightblue; border-radius: 10px; overflow: hidden;'>
-    			<img id='animation' src="./GIFs/tetrahedron_reflection_swap_1234.gif">
-    		</div>
-    		<div class='visualisation-column' style='flex: 1;'>
-    			<p> Observing where pairs of edges <span style="color:red;">a</span>, <span style="color:blue;">b</span>, and <span style="color: green">c</span> go, we see that the chosen element of \(S_4\) maps to the following element of \(S_3\):</p>
-    			<p id='S3-element' style='font-size: 25px;'> test ele</p>
-    			<p class='explicit' id='S3imagea'> a </p>
-				<p class='explicit' id='S3imageb'>b </p>
-				<p class='explicit' id='S3imagec'>c </p>
-    		</div>    		
-    	</div>
+        <div class="d-flex flex-column align-items-center mb-4">
+            <label for="notation_select">Select element notation type:</label>        
+            <select id="notation_select" name="notation" class="form-select my-2 w-auto fs-6">
+                <option value="cycle">Cycle notation</option>
+                <option value="one-line">One-line notation</option>
+            </select>
+            <p><a href="https://en.wikipedia.org/wiki/Permutation#Cycle_notation" target="_blank">Cycle notation</a> vs <a href="https://en.wikipedia.org/wiki/Permutation#One-line_notation" target="_blank">One-line notation</a></p>
+        </div>
 
-    	<div class='heading'>    		
-    		<h2 > A complete description of the map and the isomorphism \(S_4\big/K_4 \cong S_3\)</h2>	
-    	</div>
-    	<div>
-    		<p> We keep the notation that \( S_4\) acts on the set \( \{1,2,3,4 \} \) and \(S_3\) acts on the set {<span style="color:red;">a</span>, <span style="color:blue;">b</span>, <span style="color: green">c</span>} as above. The explicit map is as follows (using chosen element notation type above):</p>
-    	</div>
-    	<div id='description-container'>
-    		<div class='desc-map-column' id ='desc-column-1' style='flex: 1;'>
-    			a
-			</div>
-    		<div class='desc-map-column' id ='desc-column-2' style='flex: 1;'>
-    			b
-			</div>
-    		<div class='desc-map-column' id ='desc-column-3' style='flex: 1;'>
-    			c
-			</div>
-    		<div class='desc-map-column' id ='desc-column-4' style='flex: 1;'>
-    			d
-			</div>
-    		<div class='desc-map-column' id ='desc-column-5' style='flex: 1;'>
-    			e
-			</div>
-    		<div class='desc-map-column' id ='desc-column-6' style='flex: 1;'>
-    			f
-			</div>
-    	</div>
-    	<div id='isom-desc-container' style ='display: flex; flex-direction: column;'>
-    		<p> Observe that \(4\) elements are in the kernel of the map from \(S_4\) to \(S_3\). These four elements form a subgroup of \(S_4\) isomorphic to \(C_2 \times C_2 \), which is often denoted by \( K_4 \). Explicitly, this subgroup is:</p>
-    		<p id='K4-desc' style="text-align: center;"> </p> 
-    		<p> Therefore, by the <a href ='https://en.wikipedia.org/wiki/Isomorphism_theorems#Theorem_A_(groups)' target="_blank"> First Isomorphism Theorem</a>, we have \( S_4 \big/K_4 \cong S_3 \).</p> 
-    	</div>
-	<a  class="bottom-right" href='https://github.com/DylanJohnston/S4ontoS3visualisation' target="_blank" >Link to GitHub Repo. </a>
+        <div>
+            <p>\(S_4\) acts on the vertices of the regular tetrahedron. These vertices are labeled \(1, 2, 3, 4\). So \(S_4\) acts on the set \(\{1, 2, 3, 4\}\).</p>
+            <p>\(S_3\) acts on pairs of opposite edges. The pairs of edges are colored <span style="color:red;">red</span>, <span style="color:blue;">blue</span>, and <span style="color: green">green</span>. They will be referred to as <span style="color:red;">a</span>, <span style="color:blue;">b</span>, and <span style="color: green">c</span> respectively. So \(S_3\) acts on the set {<span style="color:red;">a</span>, <span style="color:blue;">b</span>, <span style="color: green">c</span>}.</p>
+        </div>
+
+		<div class="container mt-5">
+		    <div class="row align-items-center">
+		        <div class="col-xl-4 col-12 d-flex flex-column align-items-center mt-3 ">
+		            <label for="S4-element-select">Choose an element of \(S_4\):</label>
+		            <select id="S4-element-select" class="form-select mt-2 mb-3 w-auto">
+		            </select>
+		            <p id="S4image1" class="explicit">1</p>
+		            <p id="S4image2" class="explicit">2</p>
+		            <p id="S4image3" class="explicit">3</p>
+		            <p id="S4image4" class="explicit">4</p>
+		        </div>
+
+                <div class="col-xl-4 col-12 mb-4 d-flex flex-column mb-4 align-items-center mt-3 ">
+                    <div class="border border-light rounded-5 overflow-hidden">
+                      <img id="animation" src="./GIFs/tetrahedron_reflection_swap_1234.gif" 
+                           class="img align-items-center" 
+                           style="width: 140%; object-position: center; transform: translateX(-17.5%);">
+                    </div>
+                </div>
+
+		        <div class="col-xl-4 col-12 d-flex flex-column mb-4 align-items-center mt-3 ">
+		            <p class= "px-4">Observing where the pairs of edges <span style="color:red;">a</span>, <span style="color:blue;">b</span>, and <span style="color:green;">c</span> go, we can see that the chosen element of \(S_4\) maps to the following element of \(S_3\):</p>
+		            <p id="S3-element" style="font-size: 1.25rem;">test element</p>
+		            <p class="explicit" id="S3imagea">a</p>
+		            <p class="explicit" id="S3imageb">b</p>
+		            <p class="explicit" id="S3imagec">c</p>
+		        </div>
+		    </div>
+		</div>
+
+        <div class="heading">
+            <h2>An explicit description of the images of elements, and the isomorphism \(S_4 \big/K_4 \cong S_3\)</h2>  
+        </div>
+
+        <div>
+            <p>We keep the notation of \( S_4\) acting on the set \( \{1,2,3,4 \} \) and \(S_3\) acting on the set {<span style="color:red;">a</span>, <span style="color:blue;">b</span>, <span style="color: green">c</span>}, just as above. Explicit images of each element are as follows:</p>
+        </div>
+
+		<div class="row text-center align-items-center my-4">
+		    <div class="col-xl-2 col-md-4 col-6 border p-4" id="desc-column-1">a</div>
+		    <div class="col-xl-2 col-md-4 col-6 border p-4" id="desc-column-2">b</div>
+		    <div class="col-xl-2 col-md-4 col-6 border p-4" id="desc-column-3">c</div>
+		    <div class="col-xl-2 col-md-4 col-6 border p-4" id="desc-column-4">d</div>
+		    <div class="col-xl-2 col-md-4 col-6 border p-4" id="desc-column-5">e</div>
+		    <div class="col-xl-2 col-md-4 col-6 border p-4" id="desc-column-6">f</div>
+		</div>
+
+        <div id="isom-desc-container" class="my-4">
+            <p>Observe that there are 4 elements in the kernel of the map from \(S_4\) to \(S_3\). These four elements form a subgroup of \(S_4\) isomorphic to \(C_2 \times C_2 \), which is often denoted by \( K_4 \). Explicitly, this subgroup is:</p>
+            <p id="K4-desc" class="text-center"></p>
+            <p>Therefore, by the <a href="https://en.wikipedia.org/wiki/Isomorphism_theorems#Theorem_A_(groups):~:text=In%20particular%2C%20if,isomorphism%20theorem." target="_blank">First Isomorphism Theorem</a>, we have \( S_4 \big/K_4 \cong S_3\).</p>
+            <p>In fact, the collection of elements in the top row of each grouping of elements (formally, each \(K_4\) coset) yields a copy of \(S_3\) inside \(S_4\). Therefore, the surjective map <a href="https://en.wikipedia.org/wiki/Group_extension#Classifying_split_extensions:~:text=A%20split%20extension,and%20H." target="_blank">splits</a> and \(S_4 \cong K_4 \rtimes S_3\).</p>
+        </div>
+
+        <a href="https://github.com/DylanJohnston/S4ontoS3visualisation" class="top-right" style="font-size: 0.75rem;" target="_blank">Link to GitHub Repo</a>
     </div>
+
     <script src="./script.js"></script>
 </body>
-
-
-
 </html>
-
